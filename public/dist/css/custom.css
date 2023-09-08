@@ -1,0 +1,9 @@
+.nav-sidebar .nav-treeview > li.nav-item{
+    margin-left: 0.5rem;
+}
+.sidebar-collapse > div.wrapper > aside.main-sidebar > a.brand-link > img.custom-logo{
+    width: 80%;
+}
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+    width: auto !important;
+}
