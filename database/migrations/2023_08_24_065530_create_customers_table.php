@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('budget');
             $table->text('message');
+            $table->boolean('has_wp')->default(0);
             $table->timestamps();
         });
     }

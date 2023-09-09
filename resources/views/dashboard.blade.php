@@ -46,6 +46,46 @@
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });
+            function createAccount(id) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, create it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{route('customer.create.wp')}}",
+                            type: 'post',
+                            data: {
+                                id: id,
+                                _token: '{{csrf_token()}}',
+                            },
+                            success: function (data) {
+                                console.log(data);
+                                Swal.fire(
+                                    'Success!',
+                                    data.message,
+                                    'success'
+                                )
+                                $('#profileDatatable').DataTable().ajax.reload();
+                            },
+                            error: function (data) {
+                                Swal.fire(
+                                    'Error!',
+                                    data.responseJSON.message,
+                                    'error'
+                                )
+                            }
+                        });
+                    } else {
+                        Swal.fire('Cancelled', 'Operation Cancelled', 'error');
+                    }
+                });
+            }
         </script>
     </x-slot>
 </x-app-layout>

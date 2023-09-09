@@ -16,5 +16,6 @@ class Customer extends Model
         'phone',
         'budget',
         'message',
+        'has_wp',
     ];
 }

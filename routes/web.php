@@ -15,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
+Route::get('/', [CustomerController::class, 'create'])->name('customer.create');
+Route::post('/customer-data', [CustomerController::class, 'store'])->name('customer.store');
+Route::get('/customer-details/{email}', [CustomerController::class, 'show'])->name('customer.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,9 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [CustomerController::class,'index'])->name('dashboard');
     Route::get('/customer-ajax', [CustomerController::class,'customerDataAjax'])->name('customer-data.ajax');
+    Route::post('/wp-customer-create', [CustomerController::class,'createWpAccount'])->name('customer.create.wp');
 
 });
-Route::get('/customer-data', [CustomerController::class, 'create'])->name('customer.create');
-Route::post('/customer-data', [CustomerController::class, 'store'])->name('customer.store');
 
 require __DIR__.'/auth.php';

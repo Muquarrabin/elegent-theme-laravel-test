@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
         <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 
+        <link rel="stylesheet" href="{{asset('plugins/sweetalert2/sweetalert2.css')}}">
+
         <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
         <!-- Scripts -->
@@ -54,6 +56,9 @@
         <script src="{{asset('plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
         <script src="{{asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
         <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+        <script src="{{asset('plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+
         {{$additionalScripts ?? ''}}
     </body>
 </html>
